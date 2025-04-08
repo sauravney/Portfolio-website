@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import AnimatedSection from "./AnimatedSection";
 
 const experiences = [
   {
@@ -40,44 +41,25 @@ const experiences = [
 ];
 
 const Experience = () => {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll(".reveal").forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <section id="experience" className="bg-gray-50 dark:bg-gray-900">
-      <div className="section-container">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center reveal">
-          Work <span className="highlight">Experience</span>
-        </h2>
+    <section
+      id="experience"
+      className="section-padding px-6 md:px-12 bg-gray-50 dark:bg-gray-900"
+    >
+      <div className="max-w-7xl mx-auto">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+            Work <span className="text-portfolio-blue">Experience</span>
+          </h2>
+        </AnimatedSection>
 
-        <div className="space-y-10">
+        <div className="space-y-12">
           {experiences.map((exp, index) => (
-            <Card
-              key={exp.id}
-              className="reveal border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <CardContent className="p-0">
-                <div className="p-6 md:p-8">
+            <AnimatedSection key={exp.id} animation="fadeIn">
+              <Card className="border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition-shadow">
+                <CardContent className="p-6 md:p-8">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-start md:items-center gap-3">
                       <div className="bg-portfolio-blue/10 p-2 rounded-full">
                         <Briefcase className="h-5 w-5 text-portfolio-blue" />
                       </div>
@@ -88,18 +70,16 @@ const Experience = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="mt-2 md:mt-0 text-gray-600 dark:text-gray-400">
+                    <div className="mt-2 md:mt-0 text-gray-600 dark:text-gray-400 text-sm">
                       {exp.duration}
                     </div>
                   </div>
 
-                  <div className="mt-4">
-                    <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-400">
-                      {exp.description.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-400 mt-4">
+                    {exp.description.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
 
                   <div className="mt-6 flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
@@ -111,9 +91,9 @@ const Experience = () => {
                       </span>
                     ))}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           ))}
         </div>
       </div>

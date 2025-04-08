@@ -93,32 +93,6 @@ const About = () => {
             </div>
           </AnimatedSection>
         </div>
-
-        <AnimatedSection className="mt-24">
-          <h3 className="text-2xl md:text-3xl font-display font-bold mb-12 text-center">
-            My Expertise
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
-              <AnimatedSection
-                key={skill.title}
-                animation="slideUp"
-                delay={index * 100}
-              >
-                <div className="p-6 rounded-xl border bg-card hover:shadow-md transition-all h-full">
-                  <div className="mb-4 text-primary">{skill.icon}</div>
-                  <h4 className="text-lg font-display font-semibold mb-2">
-                    {skill.title}
-                  </h4>
-                  <p className="text-foreground/70 text-sm">
-                    {skill.description}
-                  </p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
