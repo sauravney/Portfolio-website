@@ -21,12 +21,6 @@ const About = () => {
       description:
         "For storage of data, I use MongoDB, PostgreSQL, with ORM libraries like Mongoose, Prisma and Drizzle",
     },
-    {
-      icon: <LineChart size={24} />,
-      title: "Data Visualization",
-      description:
-        "Creating interactive charts and dashboards to reveal insights from complex data.",
-    },
   ];
 
   return (
