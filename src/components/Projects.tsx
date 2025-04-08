@@ -22,14 +22,13 @@ const Projects = () => {
       repoUrl: "https://github.com/sauravney/TravelNote",
     },
     {
-      title: "Task Management App",
+      title: "BlogNation",
       description:
-        "A productivity application for managing tasks, with features like drag-and-drop organization, priority levels, and deadline notifications.",
-      imageSrc:
-        "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      tags: ["React", "Redux", "Firebase"],
+        "Built a server-side rendered comprehensive web application enabling users to post, view and comment on blogs seamlessly.",
+      imageSrc: "/Blognation.png",
+      tags: ["EJS", "NodeJs", "MongoDB", "Express"],
       liveUrl: "#",
-      repoUrl: "#",
+      repoUrl: "https://github.com/sauravney/BlogNation",
     },
   ];
 

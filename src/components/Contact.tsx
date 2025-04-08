@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { toast } from "sonner";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,16 +20,30 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const result = await emailjs.send(
+        "service_v1dq19p",
+        "template_qrf4g31",
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        "zLV_WB_EmjxQa8wRY"
+      );
+
       toast.success("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
-    }, 1000);
+    } catch (error) {
+      toast.error("Failed to send message. Please try again later.");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -36,7 +51,7 @@ const Contact = () => {
       icon: <Mail size={20} />,
       label: "Email",
       value: "saurav24242424@gmail.com",
-      href: "mailto:hello@example.com",
+      href: "mailto:saurav2424242424@gmail.com",
     },
     {
       icon: <Phone size={20} />,

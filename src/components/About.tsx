@@ -7,19 +7,19 @@ const About = () => {
       icon: <Layout size={24} />,
       title: "Frontend Development",
       description:
-        "Creating responsive, intuitive interfaces with React, TypeScript, and modern CSS.",
+        "Creating responsive, intuitive interfaces with NextJs, React, JavaScript, TypeScript, and modern CSS.",
     },
     {
       icon: <Code size={24} />,
       title: "Backend Engineering",
       description:
-        "Building scalable APIs and services with Node.js, Python, and cloud technologies.",
+        "Building scalable APIs and services with Node.js, Express Js ,EJS and Next.js.",
     },
     {
       icon: <Sparkles size={24} />,
-      title: "UI/UX Design",
+      title: "Databases",
       description:
-        "Designing elegant, functional user experiences with attention to detail.",
+        "For storage of data, I use MongoDB, PostgreSQL, with ORM libraries like Mongoose, Prisma and Drizzle",
     },
     {
       icon: <LineChart size={24} />,
